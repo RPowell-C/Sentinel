@@ -77,3 +77,5 @@ class moderator:
         browser.find_element(By.XPATH, '//*[@class="toolbar__content"]')
         e2 = browser.find_element(By.XPATH, '/html/body/div[1]/div[31]/div[2]/div[2]/div[1]/nav/div/button')
         ActionChains(browser).move_to_element(e2).click().perform()
+
+

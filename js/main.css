@@ -1,0 +1,103 @@
+.tab {
+    overflow: hidden;
+    border: 2px solid #f9f9f9;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: 2px;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 0px solid #f9f9f9;
+    border-top: none;
+}
+
+
+
+.message-container-div1 {
+    margin-top: 10px;
+    border: 1px solid #f9f9f9;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: var(--big-box-shadow);
+}
+.username-box {
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.message-box {
+    margin-left: 10px;
+}
+
+.control-buttons {
+    margin-left: 80%;
+    margin-bottom: -5px;
+}
+
+.kick {
+    background-color: inherit;
+    float: left;
+    border: 2px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+
+.ban {
+    background-color: inherit;
+    float: left;
+    border: 2px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+
+.delete {
+    background-color: inherit;
+    float: left;
+    border: 2px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+body {
+    background-color: #87CEEB;
+}
+
+
+
+section {
+    --big-box-shadow:
+    2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
+}

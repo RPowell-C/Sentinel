@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sentinel Web Interface</title>
+    </head>
+    <link rel="stylesheet" href="main.css">
+    <body>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Messages')">Messages</button>
+            <button class="tablinks" onclick="openTab(event, 'Userlist')">Userlist</button>
+        </div>
+        <!-- Tab content -->
+        <div id="Messages" class="tabcontent">
+            <div id="Ultmessage-container" class="message-container-div1">
+                <p id='username-container' class="username-box">Waiting for data</p>
+                <p id='message-container' class="message-box">Waiting for data</p>
+                <div id='control-buttons' class="control-buttons">
+                    <button id='kick' class="kick">Kick</button>
+                    <button id='ban' class="ban">Ban</button>
+                    <button id='delete' class="delete">Delete</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <script src="main.js"></script>
+    </body>
+</html>

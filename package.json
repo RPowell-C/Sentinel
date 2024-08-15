@@ -1,0 +1,23 @@
+{
+  "name": "new-bot",
+  "version": "1.0.0",
+  "description": "the newest version of the bot, using modular design # issues please open an issue if you have one, feature requests and so on are also welcome in the issues area, or you could come talk about it in the discord # Discord ``` https://discord.gg/sMPWUe6x9C ``` # Credits Reid Powell (R_Powell) - Lead Developer",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node js main.js"
+  },
+  "keywords": [],
+  "author": "Reid Powell",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.6"
+  }
+}
