@@ -8,7 +8,7 @@
 * Arch or Linux is required
 ### Supported OS's
 | OS | Support level |
-| -- | --- | 
+| -- | :---: | 
 | Arch Linux| :white_check_mark: |
 | Ubuntu | :grey_question: |
 | Windows | :x: |
