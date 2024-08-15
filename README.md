@@ -8,7 +8,7 @@
 * Arch or Linux is required
 ### OS's tested on
 * Arch Linux :white_check_mark:
-* Ubuntu :gray_question_mark:
+* Ubuntu :gray_question:
 * Windows :x:
 ## How to use/run
 ```
