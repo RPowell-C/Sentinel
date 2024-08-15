@@ -6,10 +6,12 @@
 ## Requirements
 * git is recommended 
 * Arch or Linux is required
-### OS's tested on
-* Arch Linux :white_check_mark:
-* Ubuntu :grey_question:
-* Windows :x:
+### Supported OS's
+| OS | Support level |
+| -- | --- | 
+| Arch Linux| :white_check_mark: |
+| Ubuntu | :grey_question: |
+| Windows | :x: |
 ## How to use/run
 ```
 git clone https://github.com/RPowell-C/Sentinel Sentinel
