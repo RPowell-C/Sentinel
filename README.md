@@ -61,7 +61,7 @@ and then run it when it's updated, Sentinel will not inform you when it's time t
 Sentinel comes with a lot of settings to provide the user with maximum customizability 
 ## Core Settings
 The only things that should be edited by the user in `core` is `username`, `password`, `name` and `room`.
-`username` and `password` are pretty easy to figure out, name is a kind of redundtant feature that's just the nickname of the bot, put the username if you don't have one, `room` is the room code, which is the last part of the URL when in the room.
+`username` and `password` are pretty easy to figure out, name is a kind of redundant feature that's just the nickname of the bot, put the username if you don't have one, `room` is the room code, which is the last part of the URL when in the room.
 ## Radio/Keys
 these are being taken out in the future as they are not needed
 ## Function Settings
