@@ -73,6 +73,6 @@ The aforementioned User Control Authentication List is a tool that assigns each 
 
 # Community
 ## Discord
-> https://discord.gg/sMPWUe6x9
+> https://discord.gg/XTaxm9WKFz
 ## Y99
 > https://y99.in/r/1229078
