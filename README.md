@@ -48,14 +48,28 @@ this will install all the required parts and all you need to do is fill in the s
 ```
 python3 sentinel.py
 ```
-### Javascript/Node
+## Javascript/Node
 There is a optional webserver that displays the last message, follow node install intructions to install and run the HTML file in a webbrowser if you want this, it isn't complete yet.
-### Updater
+## Updater
 There is an included updater, you will not have to do anything outside of compile the updater with 
 ```
 g++ updater.cpp -o updater.out -lcurl
 ```
 and then run it when it's updated, Sentinel will not inform you when it's time to update, this is being worked on
+
+# Settings
+Sentinel comes with a lot of settings to provide the user with maximum customizability 
+## Core Settings
+The only things that should be edited by the user in `core` is `username`, `password`, `name` and `room`.
+`username` and `password` are pretty easy to figure out, name is a kind of redundtant feature that's just the nickname of the bot, put the username if you don't have one, `room` is the room code, which is the last part of the URL when in the room.
+## Radio/Keys
+these are being taken out in the future as they are not needed
+## Function Settings
+These allow the bot to use certain commands, the important ones are `LogChat` which allows Sentinel to log the chat or not, `useUCAL` which gives Sentinel access to the User Control Authentication List, a way to restrict users from using certain commands, `useDeletion` which allows Sentinel to delete messages sent in the chat, `useBan` which allows Sentinel to ban users and `useModerationTools`, which allows Sentinel to mute the chat among other things that are planned for the future.
+## UCAL Levels
+The aforementioned User Control Authentication List is a tool that assigns each user a level, when a command is recognized by Sentinel it will check the username of the user attempting the command against its list and if the user's level is high enough it will allow the command, if it isn't it won't, this section of `settings.json` sets the level for each command or group of commands
+## Moderation
+`MiniMods` is not used for the time being, but `triggers` is a list of words that will, in the future, ban users automatically for saying them.
 
 # Community
 ## Discord
