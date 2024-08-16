@@ -28,15 +28,14 @@
 
 ## How to use/run
 ```
-git clone https://github.com/RPowell-C/Sentinel Sentinel
- ```
+git clone https://github.com/RPowell-C/Sentinel Sentinel && cd Sentinel
+```
 
 Sentinel is written in Python so running it super simple, first setup a virtual environment with and activate it with
 
 ```
 python3 -m venv .venv && source .venv/bin/activate
 ```
-
 this will setup a virtual environment at `.venv` and activate so the next command is
 
 ``` 
