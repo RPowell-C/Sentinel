@@ -1,19 +1,31 @@
 # Sentinel
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![langCount](https://img.shields.io/github/languages/count/RPowell-C/Sentinel) ![CodeFactor](https://www.codefactor.io/repository/github/rpowell-c/sentinel/badge) ![Sponsors](https://img.shields.io/github/sponsors/rpowell-c) ![issues](https://img.shields.io/github/issues/rpowell-c/sentinel) ![Maintaned](https://img.shields.io/maintenance/Yes/2024) ![discord](https://img.shields.io/discord/1145527579126808576)
 ### The only true community built moderation bot for Y99
 
 ---
 
 ## Requirements
 * git is recommended 
-* Arch or Linux is required
+* Selenium
+* 4 GB of RAM
+* See list below for OS's/Platforms
 ### Supported OS's
-| OS | Support level |
-| -- | :---: | 
-| Arch Linux| :white_check_mark: |
-| Ubuntu | :grey_question: |
-| Windows | :x: |
+| Platform | Support level |
+| -- | :---: |
+| Arch Linux| ![](https://img.shields.io/badge/Fully_Supported-gree) |
+| Manjaro | ![](https://img.shields.io/badge/Fully_Supported-gree) | 
+| Arch Based Distros | ![](https://img.shields.io/badge/Supported-green) | 
+| Ubuntu | ![](https://img.shields.io/badge/Untested*-f9ff12) |
+| Windows 10 | ![](https://img.shields.io/badge/No_Support-None_Planned-c41616) |
+| Windows 8.1 | ![](https://img.shields.io/badge/No_Support-None_Planned-c41616) |
+| Windows 7 | ![](https://img.shields.io/badge/No_Support-None_Planned-c41616)
+| Raspberry Pi 3B | ![](https://img.shields.io/badge/No_Support-Planned-orange) |
+| Raspberry Pi 4+ | ![](https://img.shields.io/badge/Untested*-f9ff12) |
+
+\* Should run fine
+
 ## How to use/run
 ```
 git clone https://github.com/RPowell-C/Sentinel Sentinel
