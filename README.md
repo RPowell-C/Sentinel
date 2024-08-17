@@ -50,11 +50,13 @@ python3 sentinel.py
 ## Javascript/Node
 There is a optional webserver that displays the last message, follow node install intructions to install and run the HTML file in a webbrowser if you want this, it isn't complete yet.
 ## Updater
+<<<<<<< HEAD
 There is an included updater, you will not have to do anything outside of compile the updater with 
 ```
 g++ updater.cpp -o updater.out -lcurl
 ```
 and then run it when it's updated, Sentinel will inform you whenever it is launched if a new version is out.
+There is an updater that is being worked on, the one in `cpp` isn't quite ready yet
 
 # Settings
 Sentinel comes with a lot of settings to provide the user with maximum customizability 
@@ -74,4 +76,4 @@ The aforementioned User Control Authentication List is a tool that assigns each 
 ## Discord
 > https://discord.gg/XTaxm9WKFz
 ## Y99
-> https://y99.in/r/1229078
+> https://y99.in/r/1792519
