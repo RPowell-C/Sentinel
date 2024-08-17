@@ -125,7 +125,6 @@ int main()
         counter++;
         // std::string mv_cmd = "mv ./phoibe/*/ + x + " ./../" + x;
         // ^ that shit is WILDLY unsafe, especially since it was ran with std::system
-
     }
     int counter2 = 0;
     for (std::string x : affected_files)
@@ -154,5 +153,4 @@ int main()
 
     std::cout << "Done!" << std::endl;
     std::cout << "You may now restart Phoibe." << std::endl;
-
 }

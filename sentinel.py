@@ -183,7 +183,7 @@ while True:
                 if UCAL.ucal.check(username, settings.ucalLevels.ban):
                     try:
                         cmd, user = message.split(" ")
-                    except:
+                    except Exception:
                         send_message("an error has occured with banning")
                     moderation.moderator.ban_user(user, browser)
                     internalFunctions.logs.writeToLogs(username + " banned " + user)

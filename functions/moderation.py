@@ -10,7 +10,7 @@ class backlog:
         try:
             if username != "read":
                 return "ok, " + username + " has been reported"
-        except:
+        except Exception:
             return "an error has occured"
     def read():
         usernames = open("./syscrit/people/backlog.txt", "r")

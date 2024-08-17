@@ -45,7 +45,7 @@ class hashes:
             hashpath = "./hashes/" + now + ".hash"
             try:
                 hashpath = open(hashpath, "r")
-            except:
+            except Exception:
                 hashpath = "woogly"
                 return "there was a rare error that occured"
             prehash = hashpath.read()
@@ -56,7 +56,7 @@ class hashes:
             print(prehash)
             #if prehash != str(m):
                 #return "the log files were not validated correctly"
-        except:
+        except Exception:
             return "something has happened"
     def hashfile(file):
         file = open(file, "rb")
