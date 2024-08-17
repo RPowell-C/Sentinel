@@ -50,11 +50,7 @@ python3 sentinel.py
 ## Javascript/Node
 There is a optional webserver that displays the last message, follow node install intructions to install and run the HTML file in a webbrowser if you want this, it isn't complete yet.
 ## Updater
-There is an included updater, you will not have to do anything outside of compile the updater with 
-```
-g++ updater.cpp -o updater.out -lcurl
-```
-and then run it when it's updated, Sentinel will not inform you when it's time to update, this is being worked on
+There is an updater that is being worked on, the one in `cpp` isn't quite ready yet
 
 # Settings
 Sentinel comes with a lot of settings to provide the user with maximum customizability 
