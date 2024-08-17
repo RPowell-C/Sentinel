@@ -4,12 +4,15 @@
 #include "include/json.hpp"
 #include <cstddef>
 #include <cstdint>
+#include <cstdio>
 #include <cstdlib>
+#include <filesystem>
 #include <iostream>
 #include <fstream>
 #include "include/curl/curl.h"
 #include "include/curl/easy.h"
 #include <ostream>
+#include <pstl/glue_algorithm_defs.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -94,7 +97,7 @@ int main()
 
 
     json data = json::parse(file);
-    // setting this to a string for nowm, will change to array later
+    // setting this to a string for now, will change to array later
     // json affected_files = json::array();
     // going ahead and creating the array
     // 105 entries is the current lines in the settings.json file
@@ -102,16 +105,26 @@ int main()
     std::vector<std::string> affected_files;
     std::vector<std::string> settings;
     bool changed_settings;
+    // creating a vector for the affected files and new settings and making a bool for if settings have been changed
+
     // json-files/settings.json
     std::ifstream old_settings("./../json-files/settings.json");
     json old_settings_data = json::parse(old_settings);
+    // loading and reading throught the old settings
     int counter = 0;
     for (std::string x : data["affected_files"])
     {
         affected_files.push_back(x);
-        std::string mv_cmd = "mv ./phoibe/*/" + x + " ./../" + x;
-        std::system(mv_cmd.c_str());
+        std::cout << x << std::endl;
+        // adding the affected file to the list of affected files
+        std::string start = "./phoibe/*/" + x;
+        std::string destination = "./../" + x;
+        std::filesystem::copy(start, destination);
+        std::filesystem::remove(start);
+        // move the new files into their new home
         counter++;
+        // std::string mv_cmd = "mv ./phoibe/*/ + x + " ./../" + x;
+        // ^ that shit is WILDLY unsafe, especially since it was ran with std::system
 
     }
     int counter2 = 0;
@@ -132,8 +145,8 @@ int main()
         o << std::setw(4) << old_settings_data << std::endl;
     }
     std::cout << "Settings have finished applying, give me a second to finish up" << std::endl;
-    std::system("rm -rf phoibe");
-    std::system("rm phoibe.zip");
+    std::filesystem::remove_all("phoibe");
+    std::remove("phoibe.zip");
 
 
 

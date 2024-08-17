@@ -125,9 +125,10 @@ trustedUsers = settings.core.trustedUsers
 
 
 userBuffer = settings.core.username
+send_message(str(internalFunctions.basics.checkVersion()))
 mesBuffer = ""
 time.sleep(.3)
-#send_message(settings.core.entrances)
+# send_message(settings.core.entrances)
 while True:
     try:
         username, message = read_messages()
@@ -138,6 +139,7 @@ while True:
         if username != "":
             userBuffer = username
         if message != mesBuffer:
+            moderation.moderator.add_strikes(username, 0)
             internalFunctions.logs.writeToLogs(message, username)
             mesBuffer = message
             print("[" + username + "]")
@@ -147,6 +149,14 @@ while True:
             if muteChat:
                 if UCAL.ucal.check(username, 10):
                     moderation.moderator.delete_message(browser)
+            if UCAL.ucal.check(username, 5):
+                moderation.moderator.delete_message(browser)
+            for thing in settings.moderation.triggers:
+                if thing in message:
+                    moderation.moderator.delete_message(browser)
+                    moderation.moderator.add_strikes(username, 1)
+            if moderation.moderator.strikes(username) >= settings.moderation.strikes:
+                moderation.moderator.ban_user(username, browser)
 
 
         if message.startswith(".version"):

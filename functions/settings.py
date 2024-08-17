@@ -33,10 +33,8 @@ class ucalLevels:
     raiseLevel = settingsdata['ucalLevels']['raiseLevel']
     ban = settingsdata['ucalLevels']['ban']
 
-class keys:
-    deeplKey = settingsdata['keys']['DeeplKey']
-
 
 class moderation:
     minimods = settingsdata['moderation']['miniMods']
     triggers = settingsdata['moderation']['triggers']
+    strikes = settingsdata['moderation']['strikeLevel']

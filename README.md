@@ -54,7 +54,7 @@ There is an included updater, you will not have to do anything outside of compil
 ```
 g++ updater.cpp -o updater.out -lcurl
 ```
-and then run it when it's updated, Sentinel will not inform you when it's time to update, this is being worked on
+and then run it when it's updated, Sentinel will inform you whenever it is launched if a new version is out.
 
 # Settings
 Sentinel comes with a lot of settings to provide the user with maximum customizability 

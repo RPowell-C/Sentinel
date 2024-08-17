@@ -3,7 +3,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
-
+import json
 
 class backlog:
     def assign(username):
@@ -77,5 +77,18 @@ class moderator:
         browser.find_element(By.XPATH, '//*[@class="toolbar__content"]')
         e2 = browser.find_element(By.XPATH, '/html/body/div[1]/div[31]/div[2]/div[2]/div[1]/nav/div/button')
         ActionChains(browser).move_to_element(e2).click().perform()
-
+    def strikes(username):
+        with open("json-files/strikes.json", "r") as f:
+            data = json.load(f)
+        shitfuck = data[username]
+        return shitfuck
+    def add_strikes(username, strikes):
+        with open("json-files/strikes.json", "r") as f:
+            data = json.load(f)
+        if username not in data.keys():
+            data[username] = strikes
+        if username in data.keys():
+            data[username] += 1
+        with open("json-files/strikes.json", "w") as f:
+            json.dump(data, f, indent=4)
 

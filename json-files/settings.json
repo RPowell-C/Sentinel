@@ -1,46 +1,39 @@
 {
-	"core": 
-		{
-			"username" : "",
-			"password" : "",
-            "entrances" : "This room is being protected by Sentinel",
-            "name" : "",
-            "version" : "nightly",
-            "room" : "",
-            "trustedUsers" : [""]
-		},
-	"radio" :
-		{
-			"radioURL" : "",
-			"broadcastURL" : ""
-		},
-    "keys" :
-    {
-        "DeeplKey" : ""   
+    "core": {
+        "entrances": "This room is being protected by Sentinel",
+        "name": "",
+        "password": "",
+        "room": "",
+        "trustedUsers": [
+            ""
+        ],
+        "username": "",
+        "version": "0.1.0"
     },
-	"functionSettings" :
-	{
-		"LogChat" : true,
-        "useFilesay" : true,
-        "useUCAL" : true,
-        "useRaiseLevel" : true,
-        "useAlert" : true,
-        "useDice" : true,
-        "useVend" : true,
-        "useDeletion": false,
+    "functionSettings": {
+        "LogChat": true,
+        "useAlert": true,
         "useBan": false,
-        "useModerationTools": true
-	},
-    "ucalLevels" :
-	{
-        "Filesay" : 85,
-        "UCAL" : 0,
-        "raiseLevel" : 90,
-        "ban" : 90
-	},
-    "moderation" :
-    {
-        "triggers" : ["pm me", "hmu"],
-        "miniMods" : []
+        "useDeletion": false,
+        "useDice": true,
+        "useFilesay": true,
+        "useModerationTools": true,
+        "useRaiseLevel": true,
+        "useUCAL": true,
+        "useVend": true
+    },
+    "moderation": {
+        "miniMods": [],
+        "triggers": [
+            "pm me",
+            "hmu"
+        ],
+        "strikeLevel": 3
+    },
+    "ucalLevels": {
+        "Filesay": 85,
+        "UCAL": 0,
+        "ban": 90,
+        "raiseLevel": 90
     }
 }
