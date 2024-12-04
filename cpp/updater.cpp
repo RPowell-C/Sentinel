@@ -3,7 +3,6 @@
 // let's be honest, no one is going to want to use this flaming pile of shit
 #include "include/json.hpp"
 #include <cstddef>
-#include <cstdint>
 #include <cstdio>
 #include <cstdlib>
 #include <filesystem>
