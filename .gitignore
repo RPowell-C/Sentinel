@@ -3,4 +3,4 @@ hashes
 **/__pycache__
 .venv/
 geckodriver.log
-**/node_modules
+node_modules
