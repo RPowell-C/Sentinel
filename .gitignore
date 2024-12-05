@@ -1,6 +1,6 @@
+node_modules
 logs
 hashes
 **/__pycache__
 .venv/
 geckodriver.log
-node_modules
