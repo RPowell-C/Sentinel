@@ -3,3 +3,6 @@ pytz
 deepl
 newsapi
 bs4
+flask
+flask_cors
+flask_restful

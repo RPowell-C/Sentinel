@@ -49,26 +49,26 @@ print("Logged in")
 
 # get past the staging page
 
-WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="welcome-page"]/div/div[3]/button'))).click()
+WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[3]/div[1]/div[2]/a/button'))).click()
 print("past the staging page")
 
 # Firefox options go here
 
 # Get rid of the popup
 
-WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/div[12]/div/div/div[3]/button[1]'))).click()
+WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/div[17]/div/div/div[3]/button[1]'))).click()
 
 print("got rid of the popup")
 print("entering the chat")
 
 # lookup the room by room code
-searchRoom = WebDriverWait(browser, 2).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/div[26]/div[1]/div[2]/div[9]/div/div[2]/input')))
+searchRoom = WebDriverWait(browser, 2).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/div[31]/div[1]/div[2]/div[9]/div/div[2]/input')))
 searchRoom.click()
 time.sleep(.1)
 searchRoom.send_keys(settings.core.room)
 
 # enter the chatroom with the code from settings.json
-chatroom = WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/div[26]/div[1]/div[2]/div[9]/div/div[3]/div[2]/div[2]/div/div[1]/div/div/div[3]/button[1]')))
+chatroom = WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/div[31]/div[1]/div[2]/div[9]/div/div[3]/div[2]/div[2]/div/div[1]/div/div/div[3]/button[1]')))
 chatroom.click()
 time.sleep(.5)
 print("entered the chat")
@@ -96,10 +96,10 @@ def send_message(message):
     time.sleep(.2)
     global userBuffer
     userBuffer = settings.core.username
-    text_area = browser.find_element(By.XPATH, '/html/body/div[1]/div[26]/div[1]/div[2]/div[8]/div[3]/div[1]/div[5]/div[2]/div/div/textarea')
+    text_area = browser.find_element(By.XPATH, '/html/body/div[1]/div[31]/div[1]/div[2]/div[8]/div[3]/div[1]/div[5]/div[2]/div/div/textarea')
     text_area.click()
     text_area.send_keys(message)
-    browser.find_element(By.XPATH, '/html/body/div[1]/div[26]/div[1]/div[2]/div[8]/div[3]/div[1]/div[5]/div[2]/div/div/div[4]').click()
+    browser.find_element(By.XPATH, '/html/body/div[1]/div[31]/div[1]/div[2]/div[8]/div[3]/div[1]/div[5]/div[2]/div/div/div[4]').click()
 # API shit
 def runAPI():
     Api.shitfuck()
@@ -155,6 +155,7 @@ while True:
                 if thing in message:
                     moderation.moderator.delete_message(browser)
                     moderation.moderator.add_strikes(username, 1)
+                    send_message("/warn + " + username + " you have been given a strike, please contact a mod if you think that this is unfair")
             if moderation.moderator.strikes(username) >= settings.moderation.strikes:
                 moderation.moderator.ban_user(username, browser)
 
