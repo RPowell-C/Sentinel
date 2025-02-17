@@ -49,19 +49,14 @@ class moderator:
             lines = file.read()
             lines = lines.split("\n")
             return lines
-    def delete_message(browser):
-        message = browser.find_elements(By.XPATH, '//*[@class="message-tooltip show-on-hover"]')
-        e = browser.find_elements(By.XPATH, '//*[@class="text_wrapper"]')
+    def delete_message(browser, message):
+        tripleDots = message.find_elements(By.XPATH, ".//div[contains(@class, 'message-tooltip') and contains(@class, "
+                                              "'show-on-hover')]//button[contains(@class, 'btn--flat') and contains("
+                                              "@class, 'btn--icon')]")[-1]
+        browser.execute_script("arguments[0].click();", tripleDots)
+        delete_button = WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(@class, 'list__tile') and contains(@class, 'list__tile--link')]//div[contains(@class, 'list__tile__title') and text()='Delete Message']")))
 
-        if e:
-            e = e[-1]
-            ActionChains(browser).move_to_element(e).perform()
-            ActionChains(browser).move_to_element(message[-1]).perform()
-
-            f = browser.find_elements(By.XPATH, '//*[@class="btn btn--flat btn--icon"]')
-            ActionChains(browser).move_to_element(f[-1]).click().perform()
-            browser.find_element(By.XPATH, '/html/body/div[1]/div[2]/div/div/div[2]/div[2]/div[1]/a/div[2]/div').click()
-            time.sleep(1)
+        delete_button.click()
     def ban_user(username, browser):
         settingsButton = browser.find_elements(By.XPATH, '//*[@class="tooltip tooltip--left"]')
         ActionChains(browser).move_to_element(settingsButton[2]).click().perform()
@@ -88,7 +83,7 @@ class moderator:
         if username not in data.keys():
             data[username] = strikes
         if username in data.keys():
-            data[username] += 1
+            data[username] += strikes
         with open("json-files/strikes.json", "w") as f:
             json.dump(data, f, indent=4)
 

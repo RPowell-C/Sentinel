@@ -7,8 +7,8 @@
         "trustedUsers": [
             ""
         ],
-        "username": "sentinelBot",
-        "version": "0.3.0"
+        "username": "",
+        "version": "0.3.2"
     },
     "functionSettings": {
         "LogChat": true,

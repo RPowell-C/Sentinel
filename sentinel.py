@@ -14,6 +14,9 @@ import random
 import json
 import threading
 
+# non function, not very important
+from colorama import Fore, Back, Style
+
 # function imports
 from functions import settings
 from functions import filesay
@@ -87,7 +90,7 @@ def read_messages():
     except Exception:
         message_text = ""
     username_text = LastMessage.find_element(By.CLASS_NAME, 'username').text
-    return username_text, message_text
+    return username_text, message_text, LastMessage
 
 
 
@@ -131,7 +134,7 @@ time.sleep(.3)
 # send_message(settings.core.entrances)
 while True:
     try:
-        username, message = read_messages()
+        username, message, messageHolder = read_messages()
         if message == "":
             message = "(No Message)"
         if username == "":
@@ -142,22 +145,22 @@ while True:
             moderation.moderator.add_strikes(username, 0)
             internalFunctions.logs.writeToLogs(message, username)
             mesBuffer = message
-            print("[" + username + "]")
+            strikes = moderation.moderator.strikes(username)
+            if strikes <= 1:
+                print("[" + Fore.GREEN + username + Fore.WHITE + "]")
+            if strikes == 2:
+                print("[" + Fore.YELLOW + username + Fore.WHITE + "]")
+            if strikes >= 3:
+                print("[" + Fore.RED + username + Fore.WHITE + "]")
             print(message)
             update_username(username)
             update_message(message)
-            if muteChat:
-                if UCAL.ucal.check(username, 10):
-                    moderation.moderator.delete_message(browser)
-            if UCAL.ucal.check(username, 5):
-                moderation.moderator.delete_message(browser)
             for thing in settings.moderation.triggers:
                 if thing in message:
-                    moderation.moderator.delete_message(browser)
+                    moderation.moderator.delete_message(browser, messageHolder)
                     moderation.moderator.add_strikes(username, 1)
-                    send_message("/warn + " + username + " you have been given a strike, please contact a mod if you think that this is unfair")
-            if moderation.moderator.strikes(username) >= settings.moderation.strikes:
-                moderation.moderator.ban_user(username, browser)
+                    # currently broken
+                    #send_message("/warn + " + username + " you have been given a strike, please contact a mod if you think that this is unfair")
 
 
         if message.startswith(".version"):
