@@ -3,12 +3,12 @@
         "entrances": "This room is being protected by Sentinel",
         "name": "",
         "password": "",
-        "room": "",
+        "room": "1792519",
         "trustedUsers": [
-            ""
+            "R_Powell"
         ],
-        "username": "",
-        "version": "0.3.2"
+        "username": "SentinelBot",
+        "version": "1.0.0"
     },
     "functionSettings": {
         "LogChat": true,

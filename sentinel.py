@@ -4,7 +4,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -25,14 +25,12 @@ from functions import moderation
 from functions import UCAL
 from functions import Api
 
-
-
 # selenium shit
 
 
 opts = Options()
-opts.add_argument("--headless")
-browser = webdriver.Firefox(options=opts)
+# opts.add_argument("--headless")
+browser = webdriver.Chrome(options=opts)
 browser.get("https://y99.in/web/login/")
 a = ActionChains(browser)
 
@@ -120,8 +118,6 @@ print("successfully threaded API server")
 
 
 
-
-
 # Tools
 muteChat = False
 trustedUsers = settings.core.trustedUsers
@@ -155,6 +151,9 @@ while True:
             print(message)
             update_username(username)
             update_message(message)
+            if muteChat:
+                if not UCAL.ucal.check(username, 5):
+                    moderation.moderator.delete_message(browser, messageHolder)
             for thing in settings.moderation.triggers:
                 if thing in message:
                     moderation.moderator.delete_message(browser, messageHolder)

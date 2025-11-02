@@ -16,6 +16,7 @@ class core:
     trustedUsers = settingsdata['core']['trustedUsers']
     room = settingsdata['core']['room']
 
+
 class miscSettings:
     logchat = settingsdata['functionSettings']['LogChat']
 

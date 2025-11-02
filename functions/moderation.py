@@ -5,20 +5,17 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import json
 
+
 class backlog:
-    def assign(username):
-        try:
-            if username != "read":
-                return "ok, " + username + " has been reported"
-        except Exception:
-            return "an error has occured"
-    def read():
+    def read(self):
         usernames = open("./syscrit/people/backlog.txt", "r")
         usernames = str(usernames.read())
         usernames = usernames.replace("\n", " ")
         return usernames
+
+
 class blacklist:
-    def check(username):
+    def check(self, username: str):
         blacklist = open("./syscrit/people/blacklist.txt", "r")
         blacklist = str(blacklist.read)
         true_blacklist = blacklist.split("\n")
@@ -26,16 +23,21 @@ class blacklist:
             return True
         else:
             return False
+
+
 class minimods:
-    def mMods():
+    def mMods(self, ):
         with open("./syscrit/people/minimods.txt") as f:
             lin = f.read()
             lines = lin.split("\n")
             return lines
-    def test():
+
+    def test(self, ):
         return "your test has been successful"
+
+
 class regUsers:
-    def check(username):
+    def check(self, username: str):
         with open("./syscrit/people/regusers.txt", "r") as f:
             lin = str(f.read())
             users = lin.split("\n")
@@ -43,21 +45,24 @@ class regUsers:
                 return True
             else:
                 return False
+
+
 class moderator:
-    def get_muted_users():
+    def get_muted_users(self, ):
         with open("syscrit/people/mute.txt", "r") as file:
             lines = file.read()
             lines = lines.split("\n")
             return lines
-    def delete_message(browser, message):
-        tripleDots = message.find_elements(By.XPATH, ".//div[contains(@class, 'message-tooltip') and contains(@class, "
-                                              "'show-on-hover')]//button[contains(@class, 'btn--flat') and contains("
-                                              "@class, 'btn--icon')]")[-1]
+
+    def delete_message(self, browser, message):
+        tripleDots = message.find_elements(By.XPATH, ".//div[contains(@class, 'message-tooltip') and contains(@class, ""'show-on-hover')]//button[contains(@class, 'btn--flat') and contains("
+                                           "@class, 'btn--icon')]")[-1]
         browser.execute_script("arguments[0].click();", tripleDots)
         delete_button = WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(@class, 'list__tile') and contains(@class, 'list__tile--link')]//div[contains(@class, 'list__tile__title') and text()='Delete Message']")))
 
         delete_button.click()
-    def ban_user(username, browser):
+
+    def ban_user(self, username, browser):
         settingsButton = browser.find_elements(By.XPATH, '//*[@class="tooltip tooltip--left"]')
         ActionChains(browser).move_to_element(settingsButton[2]).click().perform()
         e = browser.find_elements(By.XPATH, '//*[@class="tabs__container"]')
@@ -72,12 +77,14 @@ class moderator:
         browser.find_element(By.XPATH, '//*[@class="toolbar__content"]')
         e2 = browser.find_element(By.XPATH, '/html/body/div[1]/div[31]/div[2]/div[2]/div[1]/nav/div/button')
         ActionChains(browser).move_to_element(e2).click().perform()
-    def strikes(username):
+
+    def strikes(self, username):
         with open("json-files/strikes.json", "r") as f:
             data = json.load(f)
         shitfuck = data[username]
         return shitfuck
-    def add_strikes(username, strikes):
+
+    def add_strikes(self, username, strikes):
         with open("json-files/strikes.json", "r") as f:
             data = json.load(f)
         if username not in data.keys():

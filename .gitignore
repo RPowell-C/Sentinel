@@ -4,3 +4,4 @@ hashes
 **/__pycache__
 .venv/
 geckodriver.log
+.vscode
