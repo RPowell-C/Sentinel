@@ -1,6 +1,7 @@
 # imports may be needed, maybe not
 from gettext import install
 import json
+from nt import stat
 from tabnanny import check
 import requests
 import base64
@@ -9,7 +10,8 @@ import hashlib
 
 
 class checkVersion:
-    def getVersion(self):
+    @staticmethod
+    def getVersion():
         file = open("json-files/settings.json", "r")
         data = json.load(file)
         content = data['core']['version']
@@ -17,7 +19,8 @@ class checkVersion:
         ver, version, codename = content.split(" ")
         return version
 
-    def checkVersion(self):
+    @staticmethod
+    def checkVersion():
         installedVersion = checkVersion.getVersion
         url = 'https://api.github.com/repos/teenchatbot/botversion/contents/version.txt'
         req = requests.get(url)
@@ -34,9 +37,9 @@ class checkVersion:
         else:
             print("content not found")
 
-
 class hashes:
-    def check(self):
+    @staticmethod
+    def check():
         try:
             now = datetime.datetime.now()
             now = now.strftime('%Y-%m-%d')
@@ -58,7 +61,8 @@ class hashes:
         except Exception:
             return "something has happened"
 
-    def hashfile(self, file):
+    @staticmethod
+    def hashfile(file):
         file = open(file, "rb")
         file = file.read()
         now = datetime.datetime.now()

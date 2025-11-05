@@ -4,7 +4,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -29,8 +29,8 @@ from functions import Api
 
 
 opts = Options()
-# opts.add_argument("--headless")
-browser = webdriver.Chrome(options=opts)
+opts.add_argument("--headless")
+browser = webdriver.Firefox(options=opts)
 browser.get("https://y99.in/web/login/")
 a = ActionChains(browser)
 
@@ -124,7 +124,8 @@ trustedUsers = settings.core.trustedUsers
 
 
 userBuffer = settings.core.username
-send_message(str(internalFunctions.basics.checkVersion()))
+BotVersion = internalFunctions.basics.checkVersion()
+send_message(str())
 mesBuffer = ""
 time.sleep(.3)
 # send_message(settings.core.entrances)
@@ -141,7 +142,7 @@ while True:
             moderation.moderator.add_strikes(username, 0)
             internalFunctions.logs.writeToLogs(message, username)
             mesBuffer = message
-            strikes = moderation.moderator.strikes(username)
+            strikes = moderation.moderator.get_strikes(username)
             if strikes <= 1:
                 print("[" + Fore.GREEN + username + Fore.WHITE + "]")
             if strikes == 2:
@@ -188,6 +189,7 @@ while True:
                         cmd, user = message.split(" ")
                     except Exception:
                         send_message("an error has occured with banning")
+                    user = "placeholder"
                     moderation.moderator.ban_user(user, browser)
                     internalFunctions.logs.writeToLogs(username + " banned " + user)
                     send_message("/notice " + user + " has been banned")
@@ -196,30 +198,28 @@ while True:
 # filesay
         if message.startswith(".filesay"):
             if settings.funcSettings.useFilsay is True:
-                if settings.funcSettings.useUCAL is True:
-                    if UCAL.ucal.check(username, settings.ucalLevels.Filsay) is True:
-                        command, url = message.split(" ")
-                        internalFunctions.logs.writeToLogs(username + " used filesay with this link: " + str(url))
-                        contents = filesay.filesay.filesay(url)
-                        for thing in contents:
-                            time.sleep(3)
-                            send_message(thing)
+                if UCAL.ucal.check(username, settings.ucalLevels.filesay) is True:
+                    command, url = message.split(" ")
+                    internalFunctions.logs.writeToLogs(username + " used filesay with this link: " + str(url))
+                    contents = filesay.filesay.filesay(url)
+                    for thing in contents:
+                        time.sleep(3)
+                        send_message(thing)
             else:
                 send_message("this command has been disabled")
 # raise level
         if message.startswith(".raiseLevel"):
             if settings.funcSettings.useRaiseLevel is True:
-                if settings.funcSettings.useUCAL is True:
-                    if UCAL.ucal.check(username, settings.ucalLevels.raiseLevel) is True:
-                        com, target, level = message.split(" ")
-                        UCAL.ucal.raiseLevel(target, level)
-                        send_message(target + "'s level has been raised by " + level)
-                    else:
-                        send_message("your ucal level is not high enough")
+                if UCAL.ucal.check(username, settings.ucalLevels.raiseLevel) is True:
+                    com, target, level = message.split(" ")
+                    UCAL.ucal.raiseLevel(target, level)
+                    send_message(target + "'s level has been raised by " + level)
                 else:
-                    send_message("UCAL is not used in this room")
+                    send_message("your ucal level is not high enough")
             else:
-                send_message("UCAL is not used in this room, you must like killing puppies")
-    except KeyboardInterrupt():
+                send_message("UCAL is not used in this room")
+        else:
+            send_message("UCAL is not used in this room, you must like killing puppies")
+    except KeyboardInterrupt:
         print("interrupt recieved")
 

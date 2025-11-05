@@ -2,6 +2,7 @@ import requests
 
 
 class filesay:
-    def filesay(self, url):
+    @staticmethod
+    def filesay(url):
         contents = requests.get(url).text.split("\n")
         return contents

@@ -48,13 +48,14 @@ class regUsers:
 
 
 class moderator:
-    def get_muted_users(self, ):
+    @staticmethod
+    def get_muted_users():
         with open("syscrit/people/mute.txt", "r") as file:
             lines = file.read()
             lines = lines.split("\n")
             return lines
-
-    def delete_message(self, browser, message):
+    @staticmethod
+    def delete_message(browser, message):
         tripleDots = message.find_elements(By.XPATH, ".//div[contains(@class, 'message-tooltip') and contains(@class, ""'show-on-hover')]//button[contains(@class, 'btn--flat') and contains("
                                            "@class, 'btn--icon')]")[-1]
         browser.execute_script("arguments[0].click();", tripleDots)
@@ -62,29 +63,32 @@ class moderator:
 
         delete_button.click()
 
-    def ban_user(self, username, browser):
+    @staticmethod
+    def ban_user(username, browser):
         settingsButton = browser.find_elements(By.XPATH, '//*[@class="tooltip tooltip--left"]')
         ActionChains(browser).move_to_element(settingsButton[2]).click().perform()
-        e = browser.find_elements(By.XPATH, '//*[@class="tabs__container"]')
-        securityButton = browser.find_element(By.XPATH, '/html/body/div[1]/div[31]/div[2]/div[1]/div[1]/div/div[1]/div/div/div[3]/a').click()
-        banButton = browser.find_element(By.XPATH, '/html/body/div[1]/div[31]/div[2]/div[1]/div[1]/div/div[2]/div[3]/div/div/div[1]/button/div').click()
-        inputField = browser.find_element(By.XPATH, '//*[@class="input-group__input"]')
+        # e = browser.find_elements(By.XPATH, '//*[@class="tabs__container"]')
+        # securityButton = browser.find_element(By.XPATH, '/html/body/div[1]/div[31]/div[2]/div[1]/div[1]/div/div[1]/div/div/div[3]/a').click()
+        # banButton = browser.find_element(By.XPATH, '/html/body/div[1]/div[31]/div[2]/div[1]/div[1]/div/div[2]/div[3]/div/div/div[1]/button/div').click()
+        # inputField = browser.find_element(By.XPATH, '//*[@class="input-group__input"]')
         inptFld = browser.find_element(By.XPATH, '/html/body/div[1]/div[2]/div/div[1]/div[2]/div/div[1]/input')
         inptFld.send_keys(username)
         time.sleep(1)
-        continueButton = browser.find_element(By.XPATH, '/html/body/div[1]/div[2]/div/div[1]/div[3]/button[2]/div').click()
+        # continueButton = browser.find_element(By.XPATH, '/html/body/div[1]/div[2]/div/div[1]/div[3]/button[2]/div').click()
         time.sleep(1)
         browser.find_element(By.XPATH, '//*[@class="toolbar__content"]')
         e2 = browser.find_element(By.XPATH, '/html/body/div[1]/div[31]/div[2]/div[2]/div[1]/nav/div/button')
         ActionChains(browser).move_to_element(e2).click().perform()
 
-    def strikes(self, username):
+    @staticmethod
+    def get_strikes(username: str):
         with open("json-files/strikes.json", "r") as f:
             data = json.load(f)
-        shitfuck = data[username]
-        return shitfuck
+        perp = data[username]
+        return perp
 
-    def add_strikes(self, username, strikes):
+    @staticmethod
+    def add_strikes(username: str, strikes: int):
         with open("json-files/strikes.json", "r") as f:
             data = json.load(f)
         if username not in data.keys():

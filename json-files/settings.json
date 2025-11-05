@@ -1,14 +1,14 @@
 {
     "core": {
         "entrances": "This room is being protected by Sentinel",
-        "name": "",
+        "name": "Sentinel",
         "password": "",
         "room": "1792519",
         "trustedUsers": [
             "R_Powell"
         ],
         "username": "SentinelBot",
-        "version": "1.0.0"
+        "version": "1.1.0"
     },
     "functionSettings": {
         "LogChat": true,

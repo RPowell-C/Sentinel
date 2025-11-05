@@ -4,7 +4,8 @@ import requests
 
 
 class logs:
-    def writeToLogs(self, message: str, username: str = "phoibe"):
+    @staticmethod
+    def writeToLogs(message: str, username: str = "phoibe"):
         now1 = datetime.datetime.now()
         time = now1.strftime('%Y-%m-%d %H:%M:%S')
         date = now1.strftime('%Y-%m-%d')
@@ -14,7 +15,8 @@ class logs:
 
 
 class basics:
-    def checkVersion(self):
+    @staticmethod
+    def checkVersion():
         x = requests.get('https://pages-theta-blond.vercel.app/api/hello')
         data = json.loads(x.text)
         with open("json-files/settings.json") as f:

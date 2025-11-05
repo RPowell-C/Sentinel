@@ -2,6 +2,7 @@ import json
 
 
 class ucal:
+    @staticmethod
     def check(username, commandLevel):
         with open("json-files/ucal.json", "r") as file:
             data = json.load(file)
@@ -15,12 +16,15 @@ class ucal:
                     return True
                 else:
                     return False
+
+    @staticmethod
     def raiseLevel(username, levels):
         with open("json-files/ucal.json", "r") as file:
             data = json.load(file)
             data[username] = data[username] + int(levels)
             with open("json-files/ucal.json", "w") as file:
                 json.dump(data, file, indent=4)
+    @staticmethod
     def add(username):
         with open("json-files/ucal.json") as file:
             data = json.load(file)

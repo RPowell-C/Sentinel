@@ -33,6 +33,7 @@ class ucalLevels:
     ucal = settingsdata['ucalLevels']['UCAL']
     raiseLevel = settingsdata['ucalLevels']['raiseLevel']
     ban = settingsdata['ucalLevels']['ban']
+    filesay = settingsdata['ucalLevels']['Filesay']
 
 
 class moderation:

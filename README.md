@@ -11,6 +11,7 @@
 * Selenium
 * 4 GB of RAM
 * See list below for OS's/Platforms
+* If you're on Linux install the firefox package
 ### Supported OS's
 | Platform | Support level |
 | -- | :---: |
