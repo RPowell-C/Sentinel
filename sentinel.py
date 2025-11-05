@@ -125,6 +125,7 @@ trustedUsers = settings.core.trustedUsers
 
 userBuffer = settings.core.username
 send_message(str(internalFunctions.basics.checkVersion()))
+send_message(str(settings.core.entrances))
 mesBuffer = ""
 time.sleep(.3)
 # send_message(settings.core.entrances)

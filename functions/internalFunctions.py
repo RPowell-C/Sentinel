@@ -19,11 +19,13 @@ class basics:
     def checkVersion():
         x = requests.get('https://pages-theta-blond.vercel.app/api/hello')
         data = json.loads(x.text)
+        version = data['sentinel']['version']
+        print(version)
         with open("json-files/settings.json") as f:
             data2 = json.load(f)
         installedVersion = data2['core']['version']
 
-        if data['version'] != installedVersion:
+        if version != installedVersion:
             return "an update is needed"
-        if data['version'] == installedVersion:
+        if version == installedVersion:
             return "version is up to date"
