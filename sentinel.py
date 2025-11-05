@@ -124,8 +124,7 @@ trustedUsers = settings.core.trustedUsers
 
 
 userBuffer = settings.core.username
-BotVersion = internalFunctions.basics.checkVersion()
-send_message(str())
+send_message(str(internalFunctions.basics.checkVersion()))
 mesBuffer = ""
 time.sleep(.3)
 # send_message(settings.core.entrances)
@@ -217,9 +216,7 @@ while True:
                 else:
                     send_message("your ucal level is not high enough")
             else:
-                send_message("UCAL is not used in this room")
-        else:
-            send_message("UCAL is not used in this room, you must like killing puppies")
+                send_message("UCAL is not used in this room, you must like killing puppies")
     except KeyboardInterrupt:
         print("interrupt recieved")
 

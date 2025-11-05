@@ -1,11 +1,12 @@
 {
     "core": {
         "entrances": "This room is being protected by Sentinel",
-        "name": "Sentinel",
+        "name": "",
         "password": "",
         "room": "1792519",
         "trustedUsers": [
-            "R_Powell"
+            "R_Powell",
+            "system"
         ],
         "username": "SentinelBot",
         "version": "1.1.0"
@@ -14,7 +15,7 @@
         "LogChat": true,
         "useAlert": true,
         "useBan": false,
-        "useDeletion": false,
+        "useDeletion": true,
         "useDice": true,
         "useFilesay": true,
         "useModerationTools": true,
