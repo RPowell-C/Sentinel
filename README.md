@@ -11,7 +11,7 @@
 * Selenium
 * 4 GB of RAM
 * See list below for OS's/Platforms
-* If you're on Linux install the firefox package
+* Firefox Package from your distro's repository
 ### Supported OS's
 | Platform | Support level |
 | -- | :---: |
@@ -48,15 +48,7 @@ this will install all the required parts and all you need to do is fill in the s
 ```
 python3 sentinel.py
 ```
-## Javascript/Node
-There is a optional webserver that displays the last message, follow node install intructions to install and run the HTML file in a webbrowser if you want this, it isn't complete yet.
-## Updater
-There is an included updater, you will not have to do anything outside of compile the updater with 
-```
-g++ updater.cpp -o updater.out -lcurl
-```
-and then run it when it's updated, Sentinel will inform you whenever it is launched if a new version is out.
-There is an updater that is being worked on, the one in `cpp` isn't quite ready yet
+
 
 # Settings
 Sentinel comes with a lot of settings to provide the user with maximum customizability 
@@ -77,3 +69,10 @@ The aforementioned User Control Authentication List is a tool that assigns each 
 > https://discord.gg/XTaxm9WKFz
 ## Y99
 > https://y99.in/r/1792519
+## Community Recognition
+I would like to thank these people for their work and contributions on the bot, both Phoibe and Sentinel
+* Mikael Varashovsky
+* Obiwan-66
+* Hamzah 
+* Anonymouse
+* Mostafa
